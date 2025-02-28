@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakthrough Survey Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            color: gold;
+        }
+        h1 {
+            color: orange;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: orange;
+        }
+        p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            color: white;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid gold;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(page).classList.remove('hidden');
+        }
+
+        function register() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            if (name && phone) {
+                document.getElementById('registrationStatus').innerText = `Registered: ${name}, ${phone}`;
+                showPage('questionPage');
+            } else {
+                alert('Please enter both name and phone number.');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Welcome Page -->
+    <div class="container" id="welcomePage" class="page">
+        <h1>Welcome to Breakthrough Company Survey Form</h1>
+        <p>We appreciate your participation! Please proceed to register.</p>
+        <button onclick="showPage('registrationPage')">Start Registration</button>
+    </div>
+
+    <!-- Registration Page -->
+    <div class="container hidden" id="registrationPage" class="page">
+        <h2>Registration</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required>
+        
+        <button onclick="register()">Register</button>
+        <p id="registrationStatus" class="status"></p>
+    </div>
+
+    <!-- Questions Page -->
+    <div class="container hidden" id="questionPage" class="page">
+        <h2>Questions</h2>
+        <div class="question">
+            <p>What is your favorite color?</p>
+            <label><input type="radio" name="color" value="Red"> Red</label><br>
+            <label><input type="radio" name="color" value="Orange"> Orange</label><br>
+            <label><input type="radio" name="color" value="Black"> Black</label><br>
+            <label><input type="radio" name="color" value="Gold"> Gold</label><br>
+            <button onclick="alert('Thank you for your response!')">Submit</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Breakthrough Company Survey Form
+    </footer>
+
+    <script>
+        // Show the welcome page on load
+        showPage('welcomePage');
+    </script>
+</body>
+</html>
