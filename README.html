@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የቢዝነስ እድል መጠይቅ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        h1 {
+            color: orange;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            color: white;
+        }
+        input[type="text"], input[type="tel"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid gold;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .question {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .hidden {
+            display: none; /* Class to hide elements */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="welcomePage">
+        <h1>እንኳን ደህና መጡ!</h1>
+        <p>ይህ መጠይቅ የተዘጋጀው ህይወታቸው ላይ ትላልቅ አውንታዊ ለውጥን በሁሉም በህይወት ዘርፋቸው ላይ ለማምጣት ዝግጁ የሆኑ ቀና አስተሳሰብ ያላቸው ነቃ በለው</p>
+        <button onclick="startSurvey()">Start Survey</button>
+    </div>
+
+    <div class="container hidden" id="surveyContainer">
+        <h1>የቢዝነስ እድል</h1>
+        <p>እንኳን ደህና መጡ። ይህ መጠይቅ የተዘጋጀው ህይወታቸው ላይ ትላልቅ አውንታዊ ለውጥን በሁሉም በህይወት ዘርፋቸው ላይ ለማምጣት ዝግጁ የሆኑ ቀና አስተሳሰብ ያላቸው ነቃ በለው</p>
+
+        <div class="question">
+            <label>1. ይህ ቢዝነስ የቢዝነስ ዕድል ለሁሉም ቢደረስም ለሁሉም ግን አይሆንም! እርሷም ከዚህ በታች ካሉት ውስጥ ለምን ለእርሶ አንደሚሆን ይምረጡ:</label>
+            <label><input type="radio" name="question1" value="ተጨማሪ ገቢ ስለምፈልግ" required> ተጨማሪ ገቢ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="አሁን ካለሁበት የተሻለ ቦታ መሆን ስለምፈልግ"> አሁን ካለሁበት የተሻለ ቦታ መሆን ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ለወቅቱ የሚመጥን የገቢ አማረጭ ስለምፈልግ"> ለወቅቱ የሚመጥን የገቢ አማረጭ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="በወጣትነቴ ሀብታም መሆን እና ጡረታ መውጣት ስለምፈልግ"> በወጣትነቴ ሀብታም መሆን እና ጡረታ መውጣት ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ገንዘብ ለማግኘት ሁሌም እኔን የማይፈልግ ሲስተም መገንባት ስለምፈልግ"> ገንዘብ ለማግኘት ሁሌም እኔን የማይፈልግ ሲስተም መገንባት ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ከራሴ አልፌ ለብዙ ሰዎች መተረፍ ስለምፈልግ"> ከራሴ አልፌ ለብዙ ሰዎች መተረፍ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="አሁን ካለኝ የቢዝነስ አስተሳሰብ የተሻለ የቢዝነስ አስተሳሰብ እንዲኖረኝ ስለምፈልግ"> አሁን ካለኝ የቢዝነስ አስተሳሰብ የተሻለ የቢዝነስ አስተሳሰብ እንዲኖረኝ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="በቡድን መስራት ማድገን ስለምመረጥ"> በቡድን መስራት ማድገን ስለምመረጥ</label>
+            <label><input type="radio" name="question1" value="አሁን ባለኝ እውቀት ፣ ችሎታ ፣ ገንዘብ እና ሙያ ብቻ የምሰራው ቢዝነስ ስለምፈልግ"> አሁን ባለኝ እውቀት ፣ ችሎታ ፣ ገንዘብ እና ሙያ ብቻ የምሰራው ቢዝነስ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="የትም መቼም ልሰራው የምችለው ቢዝነስ ስለምፈልግ"> የትም መቼም ልሰራው የምችለው ቢዝነስ ስለምፈልግ</label>
+        </div>
+
+        <div class="question">
+            <label>2. በምን ስራ ላይ ተሰማረተዎል?</label>
+            <label><input type="radio" name="question2" value="ትምህርት" required> ትምህርት</label>
+            <label><input type="radio" name="question2" value="ስራ"> ስራ</label>
+            <label><input type="radio" name="question2" value="ምንም"> ምንም</label>
+            <label><input type="radio" name="question2" value="ተማሪም ሰራተኛም"> ተማሪም ሰራተኛም</label>
+        </div>
+
+        <div class="question">
+            <label>3. ስራ ላይ ከሆኑ?</label>
+            <label><input type="radio" name="question3" value="የግል"> የግል</label>
+            <label><input type="radio" name="question3" value="በቅጥር"> በቅጥር</label>
+        </div>
+
+        <div class="question">
+            <label>4. ትምህርት ላይ ከሆኑ በየትኛው ደረጃ?</label>
+            <label><input type="radio" name="question4" value="ፕሪፓራቶሪ" required> ፕሪፓራቶሪ</label>
+            <label><input type="radio" name="question4" value="ኮሌጅ / ዩንቨርስቲ"> ኮሌጅ / ዩንቨርስቲ</label>
+        </div>
+
+        <div class="question">
+            <label>5. ከላይ የተጠቀሰው አይነት ቢዝነስ ለእርሷ ልንሰጦጥት ዝግጁ ነን። እርሶም ዝግጁ ከሆኑ መረጃ ሊያገኙበት የሚፈልጉበትን መንገድ ይምረጡ:</label>
+            <label><input type="radio" name="question5" value="በአካል" required> በአካል</label>
+            <label><input type="radio" name="question5" value="በስልክ"> በስልክ</label>
+            <label><input type="radio" name="question5" value="በቴሌግራም"> በቴሌግራም</label>
+        </div>
+
+        <div class="question">
+            <label>6. ሙሉ ስም*</label>
+            <input type="text" name="fullName" placeholder="የእርሷ ሙሉ ስም ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>7. ስልክ ቁጥር*</label>
+            <input type="tel" name="phoneNumber" placeholder="የእርሷ ስልክ ቁጥር ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>8. አድራሻ (ከተማ)*</label>
+            <input type="text" name="city" placeholder="የእርሷ ከተማ ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>9. ፆታ*</label>
+            <label><input type="radio" name="gender" value="ወንድ" required> ወንድ</label>
+            <label><input type="radio" name="gender" value="ሴት"> ሴት</label>
+        </div>
+
+        <button onclick="submitSurvey()">አስተያየት ይላኩ</button>
+    </div>
+
+    <script>
+        function startSurvey() {
+            document.getElementById('welcomePage').classList.add('hidden'); // Hide welcome page
+            document.getElementById('surveyContainer').classList.remove('hidden'); // Show survey
+        }
+
+        function submitSurvey() {
+            // Logic to handle form submission will go here
+            alert('በግልጽ ቁጥር ይላኩ!');
+        }
+    </script>
+
+</body>
+</html>
