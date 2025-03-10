@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breakthrough Survey Form</title>
+    <title>የቢዝነስ እድል መጠይቅ</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,27 +13,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            justify-content: flex-start;
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
         }
         .container {
-            background: black;
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             padding: 20px;
             margin: 20px;
             width: 90%;
             max-width: 500px;
             text-align: center;
-            color: gold;
+            overflow-y: auto;
+            max-height: 90vh;
         }
         h1 {
             color: orange;
             margin-bottom: 20px;
-        }
-        h2 {
-            color: orange;
         }
         p {
             color: #ddd;
@@ -46,7 +45,7 @@
             text-align: left;
             color: white;
         }
-        input[type="text"] {
+        input[type="text"], input[type="tel"] {
             width: calc(100% - 20px);
             padding: 10px;
             margin-top: 5px;
@@ -69,75 +68,103 @@
         button:hover {
             background-color: red;
         }
-        .hidden {
-            display: none;
-        }
-        footer {
+        .question {
             margin-top: 20px;
-            font-size: 0.9em;
-            color: #777;
+            text-align: left;
+        }
+        .hidden {
+            display: none; /* Class to hide elements */
         }
     </style>
-    <script>
-        function showPage(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
-            document.getElementById(page).classList.remove('hidden');
-        }
-
-        function register() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            if (name && phone) {
-                document.getElementById('registrationStatus').innerText = `Registered: ${name}, ${phone}`;
-                showPage('questionPage');
-            } else {
-                alert('Please enter both name and phone number.');
-            }
-        }
-    </script>
 </head>
 <body>
 
-    <!-- Welcome Page -->
-    <div class="container" id="welcomePage" class="page">
-        <h1>Welcome to Breakthrough Company Survey Form</h1>
-        <p>We appreciate your participation! Please proceed to register.</p>
-        <button onclick="showPage('registrationPage')">Start Registration</button>
+    <div class="container" id="welcomePage">
+        <h1>እንኳን ደህና መጡ!</h1>
+        <p>ይህ መጠይቅ የተዘጋጀው ህይወታቸው ላይ ትላልቅ አውንታዊ ለውጥን በሁሉም በህይወት ዘርፋቸው ላይ ለማምጣት ዝግጁ የሆኑ ቀና አስተሳሰብ ያላቸው ነቃ በለው</p>
+        <button onclick="startSurvey()">Start Survey</button>
     </div>
 
-    <!-- Registration Page -->
-    <div class="container hidden" id="registrationPage" class="page">
-        <h2>Registration</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-        
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" required>
-        
-        <button onclick="register()">Register</button>
-        <p id="registrationStatus" class="status"></p>
-    </div>
+    <div class="container hidden" id="surveyContainer">
+        <h1>የቢዝነስ እድል</h1>
+        <p>እንኳን ደህና መጡ። ይህ መጠይቅ የተዘጋጀው ህይወታቸው ላይ ትላልቅ አውንታዊ ለውጥን በሁሉም በህይወት ዘርፋቸው ላይ ለማምጣት ዝግጁ የሆኑ ቀና አስተሳሰብ ያላቸው ነቃ በለው</p>
 
-    <!-- Questions Page -->
-    <div class="container hidden" id="questionPage" class="page">
-        <h2>Questions</h2>
         <div class="question">
-            <p>What is your favorite color?</p>
-            <label><input type="radio" name="color" value="Red"> Red</label><br>
-            <label><input type="radio" name="color" value="Orange"> Orange</label><br>
-            <label><input type="radio" name="color" value="Black"> Black</label><br>
-            <label><input type="radio" name="color" value="Gold"> Gold</label><br>
-            <button onclick="alert('Thank you for your response!')">Submit</button>
+            <label>1. ይህ ቢዝነስ የቢዝነስ ዕድል ለሁሉም ቢደረስም ለሁሉም ግን አይሆንም! እርሷም ከዚህ በታች ካሉት ውስጥ ለምን ለእርሶ አንደሚሆን ይምረጡ:</label>
+            <label><input type="radio" name="question1" value="ተጨማሪ ገቢ ስለምፈልግ" required> ተጨማሪ ገቢ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="አሁን ካለሁበት የተሻለ ቦታ መሆን ስለምፈልግ"> አሁን ካለሁበት የተሻለ ቦታ መሆን ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ለወቅቱ የሚመጥን የገቢ አማረጭ ስለምፈልግ"> ለወቅቱ የሚመጥን የገቢ አማረጭ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="በወጣትነቴ ሀብታም መሆን እና ጡረታ መውጣት ስለምፈልግ"> በወጣትነቴ ሀብታም መሆን እና ጡረታ መውጣት ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ገንዘብ ለማግኘት ሁሌም እኔን የማይፈልግ ሲስተም መገንባት ስለምፈልግ"> ገንዘብ ለማግኘት ሁሌም እኔን የማይፈልግ ሲስተም መገንባት ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="ከራሴ አልፌ ለብዙ ሰዎች መተረፍ ስለምፈልግ"> ከራሴ አልፌ ለብዙ ሰዎች መተረፍ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="አሁን ካለኝ የቢዝነስ አስተሳሰብ የተሻለ የቢዝነስ አስተሳሰብ እንዲኖረኝ ስለምፈልግ"> አሁን ካለኝ የቢዝነስ አስተሳሰብ የተሻለ የቢዝነስ አስተሳሰብ እንዲኖረኝ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="በቡድን መስራት ማድገን ስለምመረጥ"> በቡድን መስራት ማድገን ስለምመረጥ</label>
+            <label><input type="radio" name="question1" value="አሁን ባለኝ እውቀት ፣ ችሎታ ፣ ገንዘብ እና ሙያ ብቻ የምሰራው ቢዝነስ ስለምፈልግ"> አሁን ባለኝ እውቀት ፣ ችሎታ ፣ ገንዘብ እና ሙያ ብቻ የምሰራው ቢዝነስ ስለምፈልግ</label>
+            <label><input type="radio" name="question1" value="የትም መቼም ልሰራው የምችለው ቢዝነስ ስለምፈልግ"> የትም መቼም ልሰራው የምችለው ቢዝነስ ስለምፈልግ</label>
         </div>
-    </div>
 
-    <footer>
-        &copy; 2025 Breakthrough Company Survey Form
-    </footer>
+        <div class="question">
+            <label>2. በምን ስራ ላይ ተሰማረተዎል?</label>
+            <label><input type="radio" name="question2" value="ትምህርት" required> ትምህርት</label>
+            <label><input type="radio" name="question2" value="ስራ"> ስራ</label>
+            <label><input type="radio" name="question2" value="ምንም"> ምንም</label>
+            <label><input type="radio" name="question2" value="ተማሪም ሰራተኛም"> ተማሪም ሰራተኛም</label>
+        </div>
+
+        <div class="question">
+            <label>3. ስራ ላይ ከሆኑ?</label>
+            <label><input type="radio" name="question3" value="የግል"> የግል</label>
+            <label><input type="radio" name="question3" value="በቅጥር"> በቅጥር</label>
+        </div>
+
+        <div class="question">
+            <label>4. ትምህርት ላይ ከሆኑ በየትኛው ደረጃ?</label>
+            <label><input type="radio" name="question4" value="ፕሪፓራቶሪ" required> ፕሪፓራቶሪ</label>
+            <label><input type="radio" name="question4" value="ኮሌጅ / ዩንቨርስቲ"> ኮሌጅ / ዩንቨርስቲ</label>
+        </div>
+
+        <div class="question">
+            <label>5. ከላይ የተጠቀሰው አይነት ቢዝነስ ለእርሷ ልንሰጦጥት ዝግጁ ነን። እርሶም ዝግጁ ከሆኑ መረጃ ሊያገኙበት የሚፈልጉበትን መንገድ ይምረጡ:</label>
+            <label><input type="radio" name="question5" value="በአካል" required> በአካል</label>
+            <label><input type="radio" name="question5" value="በስልክ"> በስልክ</label>
+            <label><input type="radio" name="question5" value="በቴሌግራም"> በቴሌግራም</label>
+        </div>
+
+        <div class="question">
+            <label>6. ሙሉ ስም*</label>
+            <input type="text" name="fullName" placeholder="የእርሷ ሙሉ ስም ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>7. ስልክ ቁጥር*</label>
+            <input type="tel" name="phoneNumber" placeholder="የእርሷ ስልክ ቁጥር ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>8. አድራሻ (ከተማ)*</label>
+            <input type="text" name="city" placeholder="የእርሷ ከተማ ይጻፉ" required>
+        </div>
+
+        <div class="question">
+            <label>9. ፆታ*</label>
+            <label><input type="radio" name="gender" value="ወንድ" required> ወንድ</label>
+            <label><input type="radio" name="gender" value="ሴት"> ሴት</label>
+        </div>
+
+        <button onclick="submitSurvey()">አስተያየት ይላኩ</button>
+    </div>
 
     <script>
-        // Show the welcome page on load
-        showPage('welcomePage');
+        function startSurvey() {
+            document.getElementById('welcomePage').classList.add('hidden'); // Hide welcome page
+            document.getElementById('surveyContainer').classList.remove('hidden'); // Show survey
+        }
+
+        function submitSurvey() {
+            // Logic to handle form submission will go here
+            alert('በግልጽ ቁጥር ይላኩ!');
+        }
     </script>
+
 </body>
 </html>
